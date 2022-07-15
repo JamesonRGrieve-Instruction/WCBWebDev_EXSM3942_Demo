@@ -1,0 +1,15 @@
+C:\tmp\C-sharp-day-two\C-sharp-day-two\bin\Debug\net6.0\C-sharp-day-two.exe
+C:\tmp\C-sharp-day-two\C-sharp-day-two\bin\Debug\net6.0\C-sharp-day-two.deps.json
+C:\tmp\C-sharp-day-two\C-sharp-day-two\bin\Debug\net6.0\C-sharp-day-two.runtimeconfig.json
+C:\tmp\C-sharp-day-two\C-sharp-day-two\bin\Debug\net6.0\C-sharp-day-two.dll
+C:\tmp\C-sharp-day-two\C-sharp-day-two\bin\Debug\net6.0\C-sharp-day-two.pdb
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.csproj.AssemblyReference.cache
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.GeneratedMSBuildEditorConfig.editorconfig
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.AssemblyInfoInputs.cache
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.AssemblyInfo.cs
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.csproj.CoreCompileInputs.cache
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.dll
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\refint\C-sharp-day-two.dll
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.pdb
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\C-sharp-day-two.genruntimeconfig.cache
+C:\tmp\C-sharp-day-two\C-sharp-day-two\obj\Debug\net6.0\ref\C-sharp-day-two.dll
