@@ -1,0 +1,15 @@
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\bin\Debug\net6.0\c-sharp-intermediate-review.exe
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\bin\Debug\net6.0\c-sharp-intermediate-review.deps.json
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\bin\Debug\net6.0\c-sharp-intermediate-review.runtimeconfig.json
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\bin\Debug\net6.0\c-sharp-intermediate-review.dll
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\bin\Debug\net6.0\c-sharp-intermediate-review.pdb
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.csproj.AssemblyReference.cache
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.GeneratedMSBuildEditorConfig.editorconfig
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.AssemblyInfoInputs.cache
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.AssemblyInfo.cs
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.csproj.CoreCompileInputs.cache
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.dll
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\refint\c-sharp-intermediate-review.dll
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.pdb
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\c-sharp-intermediate-review.genruntimeconfig.cache
+C:\tmp\c-sharp-intermediate-review\c-sharp-intermediate-review\obj\Debug\net6.0\ref\c-sharp-intermediate-review.dll
