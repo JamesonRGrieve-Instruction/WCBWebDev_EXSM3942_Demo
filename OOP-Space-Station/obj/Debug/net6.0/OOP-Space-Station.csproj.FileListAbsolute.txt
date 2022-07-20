@@ -1,0 +1,15 @@
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.csproj.AssemblyReference.cache
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.GeneratedMSBuildEditorConfig.editorconfig
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.AssemblyInfoInputs.cache
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.AssemblyInfo.cs
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.csproj.CoreCompileInputs.cache
+C:\tmp\OOP-Space-Station\OOP-Space-Station\bin\Debug\net6.0\OOP-Space-Station.exe
+C:\tmp\OOP-Space-Station\OOP-Space-Station\bin\Debug\net6.0\OOP-Space-Station.deps.json
+C:\tmp\OOP-Space-Station\OOP-Space-Station\bin\Debug\net6.0\OOP-Space-Station.runtimeconfig.json
+C:\tmp\OOP-Space-Station\OOP-Space-Station\bin\Debug\net6.0\OOP-Space-Station.dll
+C:\tmp\OOP-Space-Station\OOP-Space-Station\bin\Debug\net6.0\OOP-Space-Station.pdb
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.dll
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\refint\OOP-Space-Station.dll
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.pdb
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\OOP-Space-Station.genruntimeconfig.cache
+C:\tmp\OOP-Space-Station\OOP-Space-Station\obj\Debug\net6.0\ref\OOP-Space-Station.dll
