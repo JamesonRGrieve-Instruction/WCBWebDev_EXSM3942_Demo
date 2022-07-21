@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jameson\\Desktop\\EXSM3942_WCB\\CSharpIntermediate\\CSharpIntermediate.csproj": {}
+    "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jameson\\Desktop\\EXSM3942_WCB\\CSharpIntermediate\\CSharpIntermediate.csproj": {
+    "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jameson\\Desktop\\EXSM3942_WCB\\CSharpIntermediate\\CSharpIntermediate.csproj",
+        "projectUniqueName": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
         "projectName": "CSharpIntermediate",
-        "projectPath": "C:\\Users\\Jameson\\Desktop\\EXSM3942_WCB\\CSharpIntermediate\\CSharpIntermediate.csproj",
+        "projectPath": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
         "packagesPath": "C:\\Users\\Jameson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jameson\\Desktop\\EXSM3942_WCB\\CSharpIntermediate\\obj\\",
+        "outputPath": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jameson\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
