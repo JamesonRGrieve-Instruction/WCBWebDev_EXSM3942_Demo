@@ -65,7 +65,7 @@ do
             break;
         case '4':
             // d
-            Console.WriteLine("Current Budget Balance: $" + budget);
+            Console.WriteLine("Current Budget Balance: " + budget.ToString("C2"));
             break;
         default:
             break;
