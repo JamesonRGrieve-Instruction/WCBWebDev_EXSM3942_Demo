@@ -1,5 +1,5 @@
 ﻿char userChoice = '!';
-double budget = 1000.00;
+decimal budget = 1000.00;
 List<Product> inventory = new List<Product>() {
     new SimpleProduct("Potato Chips", 1.99, 0.50),
     new SimpleProduct("Toilet Paper", 6.75, 2.50),
@@ -76,8 +76,8 @@ do
 public abstract class Product
 {
     public string ProductName { get; set; }
-    public double SalePrice { get; set; }
-    public double PurchasePrice { get; set; }
+    public decimal SalePrice { get; set; }
+    public decimal PurchasePrice { get; set; }
     private int _stockRemaining;
     public int StockRemaining
     {
@@ -109,7 +109,7 @@ public abstract class Product
 
 public class SimpleProduct : Product
 {
-    public SimpleProduct(string name, double saleprice, double purchaseprice)
+    public SimpleProduct(string name, decimal saleprice, decimal purchaseprice)
     {
         ProductName = name;
         SalePrice = saleprice;
