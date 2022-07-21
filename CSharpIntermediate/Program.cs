@@ -1,11 +1,11 @@
 ﻿char userChoice = '!';
-decimal budget = 1000.00;
+decimal budget = 1000.00m;
 List<Product> inventory = new List<Product>() {
-    new SimpleProduct("Potato Chips", 1.99, 0.50),
-    new SimpleProduct("Toilet Paper", 6.75, 2.50),
-    new SimpleProduct("Bunch of Bananas", 0.75, 0.11),
-    new SimpleProduct("Can of Soda", 0.99, 0.45),
-    new SimpleProduct("Bag of Gummy Bears", 2.50, 0.89)
+    new SimpleProduct("Potato Chips", 1.99m, 0.50m),
+    new SimpleProduct("Toilet Paper", 6.75m, 2.50m),
+    new SimpleProduct("Bunch of Bananas", 0.75m, 0.11m),
+    new SimpleProduct("Can of Soda", 0.99m, 0.45m),
+    new SimpleProduct("Bag of Gummy Bears", 2.50m, 0.89m)
 };
 
 
