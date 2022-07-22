@@ -40,44 +40,35 @@ foreach (Pet thePet in myPets)
 
 // Abstract classes provide properties and methods to their children, but cannot be instantiated themselves.
 // This means all classes that inherit from Pet will have Name and HumanAge implicitly.
-public abstract class Pet {
-    public string Name { get; set; }
-    public int HumanAge { get; set; }
+
+// 1a
+public abstract class Person {
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public int Age { get; set; }
 }
-
-
-public class Dog : Pet { 
-    public Dog(string name, string breed, int age)
+// 1b
+public class Student : Person { 
+    public Student(string firstName, string lastName, int age, string studentID)
     {
-        Name = name;
-        Breed = breed;
-        HumanAge = age;
+        FirstName = firstName;
+        LastName = lastName;
+        Age = age;
+        StudentID = studentID;
     }
-    public string Breed { get; set; }
-   
-    // Read-only (derived) properties are properties with no setter, they merely return a value derived from other values.
-    // Attempting to set a read-only property will result in an error.
-    public int DogAge
-    {
-        get
-        {
-            return 15 + ((HumanAge-1) * 5);
-        }
-    }
+    private int studentID;
+    public string StudentID { get; set; }
 }
-
-public class Cat : Pet
+//1c
+public class Teacher : Person
 {
-    public Cat(string name, int age)
+    public Teacher(string firstName, string lastName, int age, int staffID)
     {
-        Name = name;
-        HumanAge = age;
+        FirstName = firstName;
+        LastName = lastName;
+        Age = age;
+        StaffID= staffID;
     }
-    public int CatAge
-    {
-        get
-        {
-            return 15 + ((HumanAge - 1) * 9);
-        }
-    }
+    public int StaffID { get; set; }
 }
