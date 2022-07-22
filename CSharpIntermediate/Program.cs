@@ -1,40 +1,37 @@
-﻿// In-class: Create a class for a dog. It should have a property for a name (string), breed (string) and age (int).
+﻿// 2a
+List<Person> people = new List<Person>()
+{ 
+    new Student("John", "Doe", 22, "1"),
+    new Student("Jane", "Doe", 25, "00002"),
+    new Teacher("Patty", "Poe", 40, 1),
+    new Student("Todd", "Doe", 21, "S00003"),
+    new Teacher("John", "Johnson", 45, 2),
+    new Student("Hannah", "Doe", 26, "4"),
+    new Student("Potato", "Doe", 28, "5")
+};
 
-// Rather than having a separate variable for each pet, we can use a polymorphic list (a list of Pets, allowing both Dogs and Cats to be added since they inherit from Pet).
-List<Pet> myPets = new List<Pet>();
-
-// We can add Dogs and Cats to the list with no errors, the same way we would normally add single types.
-myPets.Add(new Dog("Fido", "Golden Retriever", 2));
-myPets.Add(new Dog("Max", "Black Labrador", 4));
-myPets.Add(new Cat("Meowski", 2));
-
-// When we foreach through the polymorphic list, we use the same (parent) type for which it was declared.
-// Note that without casting, we can only access the properties of that parent (No Dog or Cat specific properties).
-foreach (Pet thePet in myPets)
+// 2c
+people = people.OrderBy(x => x.GetType().ToString()=="Teacher"?"1":"2" + x.LastName + x.FirstName).ToList();
+/* TeacherJohnson
+ * TeacherPoe
+ * StudentDoe
+ * StudentDoe
+ * StudentDoe
+ * StudentDoe
+ * StudentDoe
+ */
+foreach (Person person in people)
 {
-    string maturity = "0";
-    // Take the current pet (thePet), get it's class name (GetType()), and convert that class name to a string (ToString()). 
-    // That becomes either "Dog" or "Cat", which is easy to switch on, to access the correct property.
-    // This is essential because if you try to cast a Dog as a Cat, it will make about as much sense to C# as it would to a vet if you showed up with a Black Lab and said it was a cat.
-    switch (thePet.GetType().ToString())
+    // 2bii
+    if (person.GetType().ToString() == "Teacher")
     {
-        case "Dog":
-            // Once we determing that a given pet is a Dog, we can cast the Pet represenation to a Dog ( (Dog)thePet ).
-            // From there, we have access to Dog properties, so we can take the DogAge, convert it to a string, and store it for output.
-            maturity = ((Dog)thePet).DogAge.ToString();
-            break;
-        case "Cat":
-            // The same is true of CatAge.
-            maturity = ((Cat)thePet).CatAge.ToString();
-            break;
-        default:
-            // Currently we only deal with Dogs and Cats, but we may add a third pet type in the future, and it's possible we might forget to add another case here.
-            // This Exception ensures we don't have any funky behaviour, and it will very aggressively notify us if we try.
-            throw new Exception("Cannot identify pet type.");
+        Console.WriteLine("X"+((Teacher)person).StaffID.ToString("D5")+" - " + person.FirstName[0]+". "+person.LastName);
     }
-
-    // Once we've got the maturity value for the pet, we can output it where we had DogAge / CatAge in our single object examples.
-    Console.WriteLine(thePet.Name + " has been alive for " + thePet.HumanAge + " years, which roughly equates to the maturity of a " + maturity + " year old human.");
+    // 2bi
+    else
+    {
+        Console.WriteLine(((Student)person).StudentID + " - " + person.FirstName + " " + person.LastName);
+    }
 }
 
 
@@ -42,14 +39,16 @@ foreach (Pet thePet in myPets)
 // This means all classes that inherit from Pet will have Name and HumanAge implicitly.
 
 // 1a
-public abstract class Person {
+public abstract class Person
+{
     public string FirstName { get; set; }
     public string LastName { get; set; }
 
     public int Age { get; set; }
 }
 // 1b
-public class Student : Person { 
+public class Student : Person
+{
     public Student(string firstName, string lastName, int age, string studentID)
     {
         FirstName = firstName;
@@ -57,8 +56,29 @@ public class Student : Person {
         Age = age;
         StudentID = studentID;
     }
-    private int studentID;
-    public string StudentID { get; set; }
+    private int _studentID;
+    public string StudentID
+    {
+        get 
+        {
+            return "S" + _studentID.ToString("D5");
+        }
+        set
+        {
+            // Allows us to accept: "5", "00005" or "S00005" as valid values.
+            string toSet = value.Trim().Trim('S');
+            try
+            {
+                _studentID = int.Parse(toSet);
+            }
+            // Typically we wouldn't have Console IO in a class. I'm keeping this here to keep everything together.
+            // Instead, you should let the exception leave the class, and catch it where the assignment is being made.
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+    }
 }
 //1c
 public class Teacher : Person
@@ -68,7 +88,7 @@ public class Teacher : Person
         FirstName = firstName;
         LastName = lastName;
         Age = age;
-        StaffID= staffID;
+        StaffID = staffID;
     }
     public int StaffID { get; set; }
 }
