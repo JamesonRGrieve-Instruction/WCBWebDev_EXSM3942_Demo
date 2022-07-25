@@ -7,19 +7,15 @@
     
 }
 
-
+// By defaulting the current and previous parameters, the method can be called without them
+// This allows someone using the method to pass only num, but we can use the defaults in the recursive calls.
 void Fibbonacci(int num, int current = 0, int previous = 0)
 {
-    if (current == 0 && previous == 0)
-    {
-        Console.WriteLine(0);
-        Fibbonacci(num-1, 1, 0);
-    }
-    else
-    {
-        Console.WriteLine(current);
-        if (num > 0) Fibbonacci(num - 1, current + previous, current);
-    }
+    Console.WriteLine(current);
+    // Because the first case will loop infinitely (0+0=0), we have to give it a bit of a kickstart.
+        // The ternary statement in this case kicks current over to 1 if it's zero, which allows the current+previous to not get stuck at 0+0.
+    if (num > 0) Fibbonacci(num-1, current>0?current+previous:1, current);
+
 }
 
 ListCharacters("Hello, World");
