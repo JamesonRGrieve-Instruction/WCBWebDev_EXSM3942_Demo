@@ -18,6 +18,19 @@ void Fibbonacci(int num, int current = 0, int previous = 0)
 
 }
 
+// 10, 0, 0
+// 9, 1, 0
+// 8, 1, 1
+// 7, 2, 1
+// 6, 3, 2
+// 5, 5, 3
+// 4, 8, 5
+// 3, 13, 8
+// 2, 21, 13
+// 1, 34, 21
+// 0, 55, 34
+// For each call, the current "current" value gets bumped into the next "previous" argument, and the next "current" argument becomes the sum of the current "current" and "previous".
+
 ListCharacters("Hello, World");
 
-Fibbonacci(15);
+Fibbonacci(30);
