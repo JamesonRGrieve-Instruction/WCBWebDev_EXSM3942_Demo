@@ -1,41 +1,29 @@
-﻿Console.WriteLine("Loop Example");
-for (int i = 1; i <= 5; i++)
-{
-    Console.WriteLine(i);
-}
+﻿// Windows UserName.
+using Microsoft.Win32;
 
-Console.WriteLine("Recursive Example");
-void Count(int start, int end)
-{
-    Console.WriteLine(start);
-    if (start < end) Count(start + 1, end);
-    Console.WriteLine("End: " + start);
-}
-Count(1, 5);
+Console.WriteLine(Environment.UserName);
 
-Console.WriteLine("Visual Code Example");
-Console.WriteLine(1);
-    Console.WriteLine(2);
-        Console.WriteLine(3);
-            Console.WriteLine(4);   
-                Console.WriteLine(5);
-                Console.WriteLine("End: " + 5);
-            Console.WriteLine("End: " + 4);
-        Console.WriteLine("End: " + 3);
-    Console.WriteLine("End: " + 2);
-Console.WriteLine("End: " + 1);
+// Windows Version.
+Console.WriteLine(Environment.OSVersion.ToString());
 
+// Getting Paths of Windows User / System Folders.
+Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
+// Number of CPU Ticks of Uptime.
+Console.WriteLine(Environment.TickCount64);
 
-void Test()
-{
-    Console.WriteLine("Hello");
-    Test2(); // Calls line 23.
-} // Passes back to after 26.
+// List of logical drives attached to Windows.
+foreach (string drive in Environment.GetLogicalDrives()) Console.WriteLine(drive);
 
-void Test2()
-{
-    Console.WriteLine("World");
-} // Passes back to after 20.
+// Environment varaibles. Probably don't use Set unless you know what you're doing.
+Environment.GetEnvironmentVariable("TEMP");
+//Environment.SetEnvironmentVariable("TEMP", "Something");
 
-Test(); // Calls line 17.
+// DO NOT USE THIS IF YOU DON'T KNOW WHAT YOU'RE DOING!
+// Allows you to change registry values, which are persistent variables critical to the functions of the operating system and programs.
+// For native applications, configurations and install directories are often stored here.
+//Registry.SetValue()
+
+// Supposedly writes a message to the Windows event viewer, although I couldn't find it.
+//Environment.FailFast("Something went wrong, Jim!");
+
