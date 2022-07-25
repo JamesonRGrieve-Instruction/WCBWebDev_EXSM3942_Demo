@@ -1,41 +1,27 @@
-﻿Console.WriteLine("Loop Example");
-for (int i = 1; i <= 5; i++)
+﻿void ListCharacters(string theString)
 {
-    Console.WriteLine(i);
+    // Output: If the character we're looking at (first character) is not space, log it out.
+    if (theString[0] != ' ') Console.WriteLine(theString[0]);
+    // Loop: If the string has more than one character (there are characters we haven't logged), call the function again excluding the first character in the string.
+    if (theString.Length > 1) ListCharacters(theString.Substring(1));
+    
 }
 
-Console.WriteLine("Recursive Example");
-void Count(int start, int end)
+
+void Fibbonacci(int num, int current = 0, int previous = 0)
 {
-    Console.WriteLine(start);
-    if (start < end) Count(start + 1, end);
-    Console.WriteLine("End: " + start);
+    if (current == 0 && previous == 0)
+    {
+        Console.WriteLine(0);
+        Fibbonacci(num-1, 1, 0);
+    }
+    else
+    {
+        Console.WriteLine(current);
+        if (num > 0) Fibbonacci(num - 1, current + previous, current);
+    }
 }
-Count(1, 5);
 
-Console.WriteLine("Visual Code Example");
-Console.WriteLine(1);
-    Console.WriteLine(2);
-        Console.WriteLine(3);
-            Console.WriteLine(4);   
-                Console.WriteLine(5);
-                Console.WriteLine("End: " + 5);
-            Console.WriteLine("End: " + 4);
-        Console.WriteLine("End: " + 3);
-    Console.WriteLine("End: " + 2);
-Console.WriteLine("End: " + 1);
+ListCharacters("Hello, World");
 
-
-
-void Test()
-{
-    Console.WriteLine("Hello");
-    Test2(); // Calls line 23.
-} // Passes back to after 26.
-
-void Test2()
-{
-    Console.WriteLine("World");
-} // Passes back to after 20.
-
-Test(); // Calls line 17.
+Fibbonacci(15);
