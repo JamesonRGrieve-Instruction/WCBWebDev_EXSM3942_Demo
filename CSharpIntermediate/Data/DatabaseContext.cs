@@ -29,12 +29,20 @@ namespace CSharpIntermediate.Models
         // 7. Generate a OnConfiguring method:
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-
+            // 10. Connect to the database.
+            if (!optionBuilder.IsConfigured) optionBuilder.UseMySql("server=localhost;port=3306;user=root;database=ef_demo", new MySqlServerVersion(new Version(10, 4, 24)));
         }
 
         // 8. Generate a OnModelCreating method:
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // 9. Set character set and collation for ALL string properties/columns.
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+            });
 
             OnModelCreatingPartial(modelBuilder);
         }

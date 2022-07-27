@@ -26,7 +26,7 @@ namespace CSharpIntermediate.Models
         public string? Name { get; set; }
 
         [Column(TypeName = "int(10)")]
-        public int QuantityOnHand{ get; set; }
+        public int QuantityOnHand { get; set; }
 
         [Column(TypeName = "int(10)")]
         public int? ReorderTheshold { get; set; }
