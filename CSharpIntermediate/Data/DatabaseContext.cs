@@ -27,10 +27,10 @@ namespace CSharpIntermediate.Models
         public virtual DbSet<Product> Products { get; set; }
 
         // 7. Generate a OnConfiguring method:
-        protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 10. Connect to the database.
-            if (!optionBuilder.IsConfigured) optionBuilder.UseMySql("server=localhost;port=3306;user=root;database=ef_demo", new MySqlServerVersion(new Version(10, 4, 24)));
+            if (!optionsBuilder.IsConfigured) optionsBuilder.UseMySql("server=localhost;port=3306;user=root;database=ef_demo", new MySqlServerVersion(new Version(10, 4, 24)));
         }
 
         // 8. Generate a OnModelCreating method:
