@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {}
+    "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {
+    "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\CSharpIntermediate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
+        "projectUniqueName": "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
         "projectName": "CSharpIntermediate",
-        "projectPath": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
+        "projectPath": "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
         "packagesPath": "C:\\Users\\Jameson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\obj\\",
+        "outputPath": "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jameson\\AppData\\Roaming\\NuGet\\NuGet.Config",

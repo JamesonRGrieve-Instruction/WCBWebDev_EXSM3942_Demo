@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XUi/MjfqdKOLtGG0r5qfPnFnmoOAfmsazEVRqbVt8DSDQki7bDB2WhyIxjgNYszP2ZN2R8FJbXtBUrz0CNwfzg==",
+  "dgSpecHash": "XZaq245LdWCTn+jutfh78NTD45r+Vy5WBxJL/qkfFwoZ81mkbebvPRSpkfy+lqEdmjuDR5I3EHuVHNpz9EIw7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jameson\\Desktop\\3942Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
+  "projectFilePath": "C:\\Users\\Jameson\\Desktop\\WCBWebDev_EXSM3942_Demo\\CSharpIntermediate\\CSharpIntermediate.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jameson\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jameson\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
