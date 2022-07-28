@@ -23,20 +23,24 @@ namespace CSharpIntermediate.Models
 
         // 11. Declare any foreign key fields as properties (nothing special yet).
         [Column("category_id", TypeName = "int(10)")]
+        [Required]
         public int CategoryID { get; set; }
 
         // 6. Create the rest of your columns (don't forget data types).
         [Column("name", TypeName = "varchar(30)")]
         [StringLength(30)]
-        public string? Name { get; set; }
+        [Required]
+        public string Name { get; set; }
 
         [Column("qoh", TypeName = "int(10)")]
+        [Required]
         public int QuantityOnHand { get; set; }
 
         [Column("reorderthreshold", TypeName = "int(10)")]
         public int? ReorderTheshold { get; set; }
 
         [Column("saleprice", TypeName = "decimal(5,2)")]
+        [Required]
         public decimal SalePrice { get; set; }
 
         // 12 Declare an annotation for the foreign key. I ALWAYS use nameof for these, as using literal strings makes it very easy to break during a rename.
