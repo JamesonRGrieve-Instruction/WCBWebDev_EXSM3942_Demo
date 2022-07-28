@@ -32,6 +32,11 @@ namespace CSharpIntermediate.Models
                 entity.Property(e => e.Name)
                     .HasCharSet("utf8mb4")
                     .UseCollation("utf8mb4_general_ci");
+
+                entity.HasData(
+                    new Manufacturer[] { 
+                        new Manufacturer() { ManufacturerID = 1, Name = "Chevrolet"}
+                    });
             });
             modelBuilder.Entity<Model>(entity =>
             {
@@ -47,6 +52,12 @@ namespace CSharpIntermediate.Models
                     .HasForeignKey(x => x.ManufacturerID)
                     .HasConstraintName("FK_" + nameof(Model) + "_" + nameof(Manufacturer))
                     .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasData(
+                    new Model[] {
+                        new Model() { ModelID = 1, ManufacturerID = 1, Name = "Aveo"},
+                        new Model() { ModelID = 2, ManufacturerID = 1, Name = "Corvette"}
+                    });
             });
 
             OnModelCreatingPartial(modelBuilder);
