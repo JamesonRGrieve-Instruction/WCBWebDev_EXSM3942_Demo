@@ -17,25 +17,25 @@ namespace CSharpIntermediate.Models
         // 5. Apply annotations for the primary key:
         [Key] // PRIMARY KEY
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Identity is Microsoft's version of AUTO_INCREMENT, EF translates this during migration.
-        [Column(TypeName = "int(10)")] // Data type for the column.
+        [Column("id", TypeName = "int(10)")] // Data type for the column.
         // 4. Create a property for the primary key.
-        public int ID { get; set; }
+        public int ProductID { get; set; }
 
         // 11. Declare any foreign key fields as properties (nothing special yet).
-        [Column(TypeName = "int(10)")]
+        [Column("category_id", TypeName = "int(10)")]
         public int CategoryID { get; set; }
 
         // 6. Create the rest of your columns (don't forget data types).
-        [Column(TypeName = "varchar(30)")]
+        [Column("name", TypeName = "varchar(30)")]
         public string? Name { get; set; }
 
-        [Column(TypeName = "int(10)")]
+        [Column("qoh", TypeName = "int(10)")]
         public int QuantityOnHand { get; set; }
 
-        [Column(TypeName = "int(10)")]
+        [Column("reorderthreshold", TypeName = "int(10)")]
         public int? ReorderTheshold { get; set; }
 
-        [Column(TypeName = "decimal(5,2)")]
+        [Column("saleprice", TypeName = "decimal(5,2)")]
         public decimal SalePrice { get; set; }
 
         // 12 Declare an annotation for the foreign key. I ALWAYS use nameof for these, as using literal strings makes it very easy to break during a rename.

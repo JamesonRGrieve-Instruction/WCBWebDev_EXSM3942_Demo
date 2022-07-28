@@ -17,15 +17,15 @@ namespace CSharpIntermediate.Models
         // 5. Apply annotations for the primary key:
         [Key] // PRIMARY KEY
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Identity is Microsoft's version of AUTO_INCREMENT, EF translates this during migration.
-        [Column(TypeName = "int(10)")] // Data type for the column.
+        [Column("id", TypeName = "int(10)")] // Data type for the column.
         // 4. Create a property for the primary key.
-        public int ID { get; set; }
+        public int ProductCategoryID { get; set; }
 
         // 6. Create the rest of your columns (don't forget data types).
-        [Column(TypeName = "varchar(30)")]
+        [Column("name", TypeName = "varchar(30)")]
         public string? Name { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
+        [Column("description", TypeName = "varchar(50)")]
         public string? Description { get; set; }
         // 14b. Declare the One-to-Many side of the inverse property.
         [InverseProperty(nameof(Models.Product.ProductCategory))]
