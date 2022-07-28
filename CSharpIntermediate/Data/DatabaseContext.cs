@@ -35,9 +35,18 @@ namespace CSharpIntermediate.Models
             });
             modelBuilder.Entity<Model>(entity =>
             {
+                entity.HasIndex(e => e.ManufacturerID)
+                    .HasName("FK_" + nameof(Model) + "_" + nameof(Manufacturer));
+
                 entity.Property(e => e.Name)
                     .HasCharSet("utf8mb4")
                     .UseCollation("utf8mb4_general_ci");
+
+                entity.HasOne(x => x.Manufacturer)
+                    .WithMany(y => y.Models)
+                    .HasForeignKey(x => x.ManufacturerID)
+                    .HasConstraintName("FK_" + nameof(Model) + "_" + nameof(Manufacturer))
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             OnModelCreatingPartial(modelBuilder);
