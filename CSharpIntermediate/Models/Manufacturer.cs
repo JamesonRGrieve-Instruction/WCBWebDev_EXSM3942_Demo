@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CSharpIntermediate.Models
 {
+    [Table("manufacturer")]
     public class Manufacturer
     {
     }
