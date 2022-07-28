@@ -39,7 +39,28 @@ namespace CSharpIntermediate.Models
             // 9. Set character set and collation for ALL string properties/columns.
             modelBuilder.Entity<Product>(entity =>
             {
+                // 15. Apply the index for the foreign key.
+                entity.HasIndex(e => e.CategoryID)
+                    .HasName("FK_"+nameof(Product)+"_"+nameof(ProductCategory));
+
                 entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+
+                // 16. Configure the relationship.
+                entity.HasOne(x => x.ProductCategory)
+                    .WithMany(y => y.Products)
+                    .HasForeignKey(x => x.CategoryID)
+                    .HasConstraintName("FK_" + nameof(Product) + "_" + nameof(ProductCategory));
+            });
+
+            modelBuilder.Entity<ProductCategory>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+
+                entity.Property(e => e.Description)
                     .HasCharSet("utf8mb4")
                     .UseCollation("utf8mb4_general_ci");
             });
