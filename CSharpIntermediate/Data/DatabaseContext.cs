@@ -27,6 +27,19 @@ namespace CSharpIntermediate.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Manufacturer>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+            });
+            modelBuilder.Entity<Model>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
