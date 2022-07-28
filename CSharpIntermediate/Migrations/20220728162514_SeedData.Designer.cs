@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpIntermediate.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220728161052_InitialMigrationForeignKeys")]
-    partial class InitialMigrationForeignKeys
+    [Migration("20220728162514_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,9 +55,28 @@ namespace CSharpIntermediate.Migrations
 
                     b.HasKey("ProductID");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryID")
+                        .HasDatabaseName("FK_Product_ProductCategory");
 
                     b.ToTable("product");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductID = 1,
+                            CategoryID = 1,
+                            Name = "Milk",
+                            QuantityOnHand = 10,
+                            SalePrice = 2.50m
+                        },
+                        new
+                        {
+                            ProductID = 2,
+                            CategoryID = 1,
+                            Name = "Cereal",
+                            QuantityOnHand = 50,
+                            SalePrice = 1.25m
+                        });
                 });
 
             modelBuilder.Entity("CSharpIntermediate.Models.ProductCategory", b =>
@@ -70,17 +89,31 @@ namespace CSharpIntermediate.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("description");
+                        .HasColumnName("description")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    MySqlPropertyBuilderExtensions.HasCharSet(b.Property<string>("Description"), "utf8mb4");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)")
-                        .HasColumnName("name");
+                        .HasColumnName("name")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    MySqlPropertyBuilderExtensions.HasCharSet(b.Property<string>("Name"), "utf8mb4");
 
                     b.HasKey("ProductCategoryID");
 
                     b.ToTable("product_category");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductCategoryID = 1,
+                            Description = "All of the coolest products.",
+                            Name = "Cool Products"
+                        });
                 });
 
             modelBuilder.Entity("CSharpIntermediate.Models.Product", b =>
@@ -88,8 +121,9 @@ namespace CSharpIntermediate.Migrations
                     b.HasOne("CSharpIntermediate.Models.ProductCategory", "ProductCategory")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_Product_ProductCategory");
 
                     b.Navigation("ProductCategory");
                 });

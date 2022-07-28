@@ -36,6 +36,23 @@ namespace CSharpIntermediate.Models
         // 8. Generate a OnModelCreating method:
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ProductCategory>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+
+                entity.Property(e => e.Description)
+                    .HasCharSet("utf8mb4")
+                    .UseCollation("utf8mb4_general_ci");
+
+                entity.HasData(
+                    new ProductCategory[]
+                    {
+                        new ProductCategory() {ProductCategoryID = 1, Name = "Cool Products", Description = "All of the coolest products."}
+                    });
+            });
+
             // 9. Set character set and collation for ALL string properties/columns.
             modelBuilder.Entity<Product>(entity =>
             {
@@ -51,19 +68,18 @@ namespace CSharpIntermediate.Models
                 entity.HasOne(x => x.ProductCategory)
                     .WithMany(y => y.Products)
                     .HasForeignKey(x => x.CategoryID)
-                    .HasConstraintName("FK_" + nameof(Product) + "_" + nameof(ProductCategory));
+                    .HasConstraintName("FK_" + nameof(Product) + "_" + nameof(ProductCategory))
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasData(
+                    new Product[]
+                    {
+                        new Product() {ProductID = 1, CategoryID = 1, Name = "Milk", QuantityOnHand = 10, SalePrice = 2.50m},
+                        new Product() {ProductID = 2, CategoryID = 1, Name = "Cereal", QuantityOnHand = 50, SalePrice = 1.25m},
+                    });
             });
 
-            modelBuilder.Entity<ProductCategory>(entity =>
-            {
-                entity.Property(e => e.Name)
-                    .HasCharSet("utf8mb4")
-                    .UseCollation("utf8mb4_general_ci");
-
-                entity.Property(e => e.Description)
-                    .HasCharSet("utf8mb4")
-                    .UseCollation("utf8mb4_general_ci");
-            });
+            
 
             OnModelCreatingPartial(modelBuilder);
         }

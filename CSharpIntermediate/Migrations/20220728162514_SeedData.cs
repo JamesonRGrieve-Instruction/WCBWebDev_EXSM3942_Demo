@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSharpIntermediate.Migrations
 {
-    public partial class InitialMigrationForeignKeys : Migration
+    public partial class SeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,9 +18,9 @@ namespace CSharpIntermediate.Migrations
                 {
                     id = table.Column<int>(type: "int(10)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false)
+                    name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false, collation: "utf8mb4_general_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    description = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                    description = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true, collation: "utf8mb4_general_ci")
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -46,16 +46,31 @@ namespace CSharpIntermediate.Migrations
                 {
                     table.PrimaryKey("PK_product", x => x.id);
                     table.ForeignKey(
-                        name: "FK_product_product_category_category_id",
+                        name: "FK_Product_ProductCategory",
                         column: x => x.category_id,
                         principalTable: "product_category",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.InsertData(
+                table: "product_category",
+                columns: new[] { "id", "description", "name" },
+                values: new object[] { 1, "All of the coolest products.", "Cool Products" });
+
+            migrationBuilder.InsertData(
+                table: "product",
+                columns: new[] { "id", "category_id", "name", "qoh", "reorderthreshold", "saleprice" },
+                values: new object[] { 1, 1, "Milk", 10, null, 2.50m });
+
+            migrationBuilder.InsertData(
+                table: "product",
+                columns: new[] { "id", "category_id", "name", "qoh", "reorderthreshold", "saleprice" },
+                values: new object[] { 2, 1, "Cereal", 50, null, 1.25m });
+
             migrationBuilder.CreateIndex(
-                name: "IX_product_category_id",
+                name: "FK_Product_ProductCategory",
                 table: "product",
                 column: "category_id");
         }
