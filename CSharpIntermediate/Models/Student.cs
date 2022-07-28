@@ -10,9 +10,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CSharpIntermediate.Models
 {
     // 3. Name our table using an annotation (square brackets).
-    [Table("product")]
+    [Table("student")]
     // 1. Change the default "internal" class to a "public" class.
-    public class Product
+    public class Student
     {
         // 5. Apply annotations for the primary key:
         [Key] // PRIMARY KEY
@@ -23,15 +23,13 @@ namespace CSharpIntermediate.Models
 
         // 6. Create the rest of your columns (don't forget data types).
         [Column(TypeName = "varchar(30)")]
-        public string? Name { get; set; }
+        public string? FirstName { get; set; }
+
+        [Column(TypeName = "varchar(30)")]
+        public string? LastName { get; set; }
 
         [Column(TypeName = "int(10)")]
-        public int QuantityOnHand { get; set; }
+        public int Age { get; set; }
 
-        [Column(TypeName = "int(10)")]
-        public int? ReorderTheshold { get; set; }
-
-        [Column(TypeName = "decimal(5,2)")]
-        public decimal SalePrice { get; set; }
     }
 }
