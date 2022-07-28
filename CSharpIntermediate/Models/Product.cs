@@ -21,6 +21,10 @@ namespace CSharpIntermediate.Models
         // 4. Create a property for the primary key.
         public int ID { get; set; }
 
+        // 11. Declare any foreign key fields as properties (nothing special yet).
+        [Column(TypeName = "int(10)")]
+        public int CategoryID { get; set; }
+
         // 6. Create the rest of your columns (don't forget data types).
         [Column(TypeName = "varchar(30)")]
         public string? Name { get; set; }
@@ -33,5 +37,14 @@ namespace CSharpIntermediate.Models
 
         [Column(TypeName = "decimal(5,2)")]
         public decimal SalePrice { get; set; }
+
+        // 12 Declare an annotation for the foreign key. I ALWAYS use nameof for these, as using literal strings makes it very easy to break during a rename.
+        [ForeignKey(nameof(CategoryID))]
+        // 14a. Declare the Many-to-One side of the inverse property. If you don't include at least part of the namespace here, you will
+        // likely get a reference error as it thinks it's pointing to the property (ProductCategory) not the type.
+        // The other side does not have this issue, as the property name is plural, but it's a decent idea to do it for symmetry anyways.
+        [InverseProperty(nameof(Models.ProductCategory.Products))]
+        // 13a. Declare the Many-to-One side of the navigation property.
+        public virtual ProductCategory ProductCategory { get; set; }
     }
 }
