@@ -15,5 +15,10 @@ namespace CSharpIntermediate.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id", TypeName = "int(10)")]
         public int ModelID { get; set; }
+
+        [Column("name", TypeName = "varchar(30)")]
+        [StringLength(30)]
+        [Required]
+        public string Name { get; set; }
     }
 }
