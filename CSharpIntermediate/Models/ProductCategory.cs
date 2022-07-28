@@ -23,9 +23,11 @@ namespace CSharpIntermediate.Models
 
         // 6. Create the rest of your columns (don't forget data types).
         [Column("name", TypeName = "varchar(30)")]
+        [StringLength(30)]
         public string? Name { get; set; }
 
         [Column("description", TypeName = "varchar(50)")]
+        [StringLength(50)]
         public string? Description { get; set; }
         // 14b. Declare the One-to-Many side of the inverse property.
         [InverseProperty(nameof(Models.Product.ProductCategory))]

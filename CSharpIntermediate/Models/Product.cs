@@ -27,6 +27,7 @@ namespace CSharpIntermediate.Models
 
         // 6. Create the rest of your columns (don't forget data types).
         [Column("name", TypeName = "varchar(30)")]
+        [StringLength(30)]
         public string? Name { get; set; }
 
         [Column("qoh", TypeName = "int(10)")]
