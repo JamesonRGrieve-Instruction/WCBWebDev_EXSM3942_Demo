@@ -16,9 +16,17 @@ namespace CSharpIntermediate.Models
         [Column("id", TypeName = "int(10)")]
         public int ModelID { get; set; }
 
+        [Column("manufacturer_id", TypeName = "int(10)")]
+        [Required]
+        public int ManufacturerID { get; set; }
+
         [Column("name", TypeName = "varchar(30)")]
         [StringLength(30)]
         [Required]
         public string Name { get; set; }
+
+        [ForeignKey(nameof(ManufacturerID))]
+        [InverseProperty(nameof(CSharpIntermediate.Models.Manufacturer.Models))]
+        public virtual Manufacturer Manufacturer { get; set; }
     }
 }

@@ -20,5 +20,8 @@ namespace CSharpIntermediate.Models
         [StringLength(30)]
         [Required]
         public string Name { get; set; }
+
+        [InverseProperty(nameof(CSharpIntermediate.Models.Model.Manufacturer))]
+        public virtual ICollection<Model> Models { get; set; }
     }
 }
