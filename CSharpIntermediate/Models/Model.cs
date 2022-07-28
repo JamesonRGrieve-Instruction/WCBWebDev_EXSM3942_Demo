@@ -11,5 +11,9 @@ namespace CSharpIntermediate.Models
     [Table("model")]
     public class Model
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id", TypeName = "int(10)")]
+        public int ModelID { get; set; }
     }
 }
