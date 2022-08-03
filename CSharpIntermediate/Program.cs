@@ -1,41 +1,27 @@
-﻿Console.WriteLine("Loop Example");
-for (int i = 1; i <= 5; i++)
+﻿// Initialize the variable to track where we are.
+int count = 0; // Initialize
+// Define the test condition that runs before every iteration.
+while (count <= 100) // Test
 {
-    Console.WriteLine(i);
+    // Process the data (output it to the console).
+    Console.WriteLine(count); // Process
+    // Increment the variable that tracks where we are.
+    count += 5; // Modify
 }
 
-Console.WriteLine("Recursive Example");
-void Count(int start, int end)
+
+
+
+void CountByFive(int current, int max)
 {
-    Console.WriteLine(start);
-    if (start < end) Count(start + 1, end);
-    Console.WriteLine("End: " + start);
+    // Process the data (output it to the console).
+    Console.WriteLine(current); // Process
+    // Perform a test to determine whether subsequent iterations should run.
+    if (current < max) // Test
+    {
+        // Call the subsequent iteration with a modified current value.
+        CountByFive(current + 5 /* Modify */, max);
+    }
 }
-Count(1, 5);
-
-Console.WriteLine("Visual Code Example");
-Console.WriteLine(1);
-    Console.WriteLine(2);
-        Console.WriteLine(3);
-            Console.WriteLine(4);   
-                Console.WriteLine(5);
-                Console.WriteLine("End: " + 5);
-            Console.WriteLine("End: " + 4);
-        Console.WriteLine("End: " + 3);
-    Console.WriteLine("End: " + 2);
-Console.WriteLine("End: " + 1);
-
-
-
-void Test()
-{
-    Console.WriteLine("Hello");
-    Test2(); // Calls line 23.
-} // Passes back to after 26.
-
-void Test2()
-{
-    Console.WriteLine("World");
-} // Passes back to after 20.
-
-Test(); // Calls line 17.
+// Call the first iteration, defining the starting value, and what the end value is (it never changes in subsequent iterations).
+CountByFive(0 /* Initialize */, 100);
