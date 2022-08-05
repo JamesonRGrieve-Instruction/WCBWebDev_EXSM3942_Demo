@@ -1,0 +1,31 @@
+﻿DROP TABLE IF EXISTS OrderInventory;
+DROP TABLE IF EXISTS InventoryProduct;
+DROP TABLE IF EXISTS OrderInvoice;
+DROP TABLE IF EXISTS Customer;
+
+CREATE TABLE Customer (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	firstname VARCHAR(50) NOT NULL,
+	lastname VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE OrderInvoice (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	customerid INT NOT NULL,
+	CONSTRAINT FK_OrderInvoice_Customer FOREIGN KEY (customerid) REFERENCES Customer(id)
+);
+
+CREATE TABLE InventoryProduct (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	qoh int NOT NULL
+);
+
+CREATE TABLE OrderInventory (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	orderid INT NOT NULL,
+	inventoryid INT NOT NULL,
+	quantity INT NOT NULL,
+	CONSTRAINT FK_OrderInventory_OrderInvoice FOREIGN KEY (orderid) REFERENCES OrderInvoice(id),
+	CONSTRAINT FK_OrderInventory_InventoryProduct FOREIGN KEY (inventoryid) REFERENCES InventoryProduct(id)
+);
