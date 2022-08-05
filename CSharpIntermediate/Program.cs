@@ -35,6 +35,49 @@ using (DatabaseContext context = new DatabaseContext())
 }
 
 // INSERT Example
+string category, name;
+decimal price;
+int qoh;
 
+Console.Write("Please enter the new product name: ");
+name = Console.ReadLine().Trim();
+Console.Write("Please enter the new product category: ");
+category = Console.ReadLine().Trim();
+Console.Write("Please enter the new product sale price: ");
+price = decimal.Parse(Console.ReadLine());
+Console.Write("Please enter the new product quantity on hand: ");
+qoh = int.Parse(Console.ReadLine());
+using (DatabaseContext context = new DatabaseContext())
+{
+    try
+    {
+        // EF automatically opens a transaction at the creation of the context.
+        context.Products.Add(new Product()
+        {
+            Name = name,
+            SalePrice = price,
+            QuantityOnHand = qoh,
+            ProductCategory = context.ProductCategories.Where(x => x.Name == category).Single()
+        });
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("ERROR: " + ex.Message);
+    }
+    // Commit Transaction
+    context.SaveChanges();
+}
 
 // UPDATE Example
+string oldname, newname;
+Console.Write("Please enter the product name to update: ");
+oldname = Console.ReadLine().Trim();
+Console.Write("Please enter the new product name: ");
+newname = Console.ReadLine().Trim();
+
+using (DatabaseContext context = new DatabaseContext())
+{
+    context.Products.Where(x => x.Name == oldname).Single().Name = newname;
+
+    context.SaveChanges();
+}

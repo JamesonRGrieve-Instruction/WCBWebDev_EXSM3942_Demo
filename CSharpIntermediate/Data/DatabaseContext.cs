@@ -25,6 +25,7 @@ namespace CSharpIntermediate.Models
 
         // 6. Create database sets for each table we plan to include.
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories{ get; set; }
 
         // 7. Generate a OnConfiguring method:
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
