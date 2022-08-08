@@ -38,22 +38,13 @@ using (DatabaseContext context = new DatabaseContext())
 // Even though ReorderNecessary is NotMapped, it references Mapped properties, so we need the context.
 using (DatabaseContext context = new DatabaseContext())
 {
-    // List to store products.
-    List<Product> NeedToReorder = new List<Product>();
-    // Check all products to see if they need to be reordered.
-    foreach (Product product in context.Products)
-    {
-        // Add to the list if so.
-        if (product.ReorderNecessary)
-        {
-            NeedToReorder.Add(product);
-        }
-    }
-    // Write out each product that needs to be reordered.
-    foreach(Product product in NeedToReorder)
-    {
-        Console.WriteLine("Please Reorder " + product.Name);
-    }
+    // 1. Defining List.
+    // 2. Get All Products.
+    // 3. Filter All Products.
+    // 4. Add Filtered Products to List.
+    // 5. Write Filtered Products to Console.
+    foreach (Product product in context.Products.ToList().Where(product => product.ReorderNecessary).ToList()) Console.WriteLine("Please Reorder " + product.Name);
+    // The first ToList() (or another translation out of DbSet/IQueryable) is required as ReorderNecessary is not in the database, meaning it will throw an exception when it tries to translate it to SQL.
 }
 
 // INSERT Example
