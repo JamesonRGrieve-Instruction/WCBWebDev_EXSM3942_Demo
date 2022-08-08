@@ -34,8 +34,25 @@ using (DatabaseContext context = new DatabaseContext())
     }
 }
 
-// INSERT Example
-string category, name;
+// Not Mapped Property Example
+using (DatabaseContext context = new DatabaseContext())
+{
+    List<Product> NeedToReorder = new List<Product>();
+    foreach (Product product in context.Products)
+    {
+        if (product.ReorderNecessary)
+        {
+            NeedToReorder.Add(product);
+        }
+    }
+    foreach(Product product in NeedToReorder)
+    {
+        Console.WriteLine("Please Reorder " + product.Name);
+    }
+}
+
+    // INSERT Example
+    string category, name;
 decimal price;
 int qoh;
 

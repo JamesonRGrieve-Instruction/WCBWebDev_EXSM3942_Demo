@@ -43,6 +43,15 @@ namespace CSharpIntermediate.Models
         [Required]
         public decimal SalePrice { get; set; }
 
+        [NotMapped]
+        public bool ReorderNecessary
+        {
+            get
+            {
+                return QuantityOnHand <= ReorderTheshold;
+            }
+        }
+
         // 12. Declare an annotation for the foreign key. I ALWAYS use nameof for these, as using literal strings makes it very easy to break during a rename.
         [ForeignKey(nameof(CategoryID))]
         // 14a. Declare the Many-to-One side of the inverse property. If you don't include at least part of the namespace here, you will
