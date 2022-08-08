@@ -43,6 +43,8 @@ namespace CSharpIntermediate.Models
         [Required]
         public decimal SalePrice { get; set; }
 
+        // NotMapped means this property has zero impact on the database.
+        // This is useful for common derived properties, to save time in the application programming stage.
         [NotMapped]
         public bool ReorderNecessary
         {

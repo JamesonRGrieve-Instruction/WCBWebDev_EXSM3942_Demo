@@ -35,24 +35,29 @@ using (DatabaseContext context = new DatabaseContext())
 }
 
 // Not Mapped Property Example
+// Even though ReorderNecessary is NotMapped, it references Mapped properties, so we need the context.
 using (DatabaseContext context = new DatabaseContext())
 {
+    // List to store products.
     List<Product> NeedToReorder = new List<Product>();
+    // Check all products to see if they need to be reordered.
     foreach (Product product in context.Products)
     {
+        // Add to the list if so.
         if (product.ReorderNecessary)
         {
             NeedToReorder.Add(product);
         }
     }
+    // Write out each product that needs to be reordered.
     foreach(Product product in NeedToReorder)
     {
         Console.WriteLine("Please Reorder " + product.Name);
     }
 }
 
-    // INSERT Example
-    string category, name;
+// INSERT Example
+string category, name;
 decimal price;
 int qoh;
 
