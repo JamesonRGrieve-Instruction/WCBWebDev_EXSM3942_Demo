@@ -14,6 +14,14 @@ namespace CSharpIntermediate.Models
     // 1. Change the default "internal" class to a "public" class.
     public class Product
     {
+        public Product(string name, int quantityOnHand, decimal salePrice)
+        {
+            Name = name;
+            QuantityOnHand = quantityOnHand;
+            SalePrice = salePrice;
+        }
+
+
         // 5. Apply annotations for the primary key:
         [Key] // PRIMARY KEY
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Identity is Microsoft's version of AUTO_INCREMENT, EF translates this during migration.
@@ -34,7 +42,8 @@ namespace CSharpIntermediate.Models
 
         [Column("qoh", TypeName = "int(10)")]
         [Required]
-        public int QuantityOnHand { get; set; }
+        public int QuantityOnHand { get; private set; }
+        // Note that when you make a setter private, you may break things such as seed data and insertion statements. To get around this, make a public constructor as above.
 
         [Column("reorderthreshold", TypeName = "int(10)")]
         public int? ReorderTheshold { get; set; }
@@ -52,6 +61,21 @@ namespace CSharpIntermediate.Models
             {
                 return QuantityOnHand <= ReorderTheshold;
             }
+        }
+
+        // Since our setter is private, we can make public methods to modify the value of QuantityOnHand in specific ways.
+        // Adds stock to QuantityOnHand then returns the new value.
+        public int RecieveStock(int amount)
+        {
+            QuantityOnHand += amount;
+            return QuantityOnHand;
+        }
+
+        // Removes stock from QuantityOnHand then returns the new value.
+        public int SellStock(int amount)
+        {
+            QuantityOnHand -= amount;
+            return QuantityOnHand;
         }
 
         // 12. Declare an annotation for the foreign key. I ALWAYS use nameof for these, as using literal strings makes it very easy to break during a rename.

@@ -75,8 +75,8 @@ namespace CSharpIntermediate.Models
                 entity.HasData(
                     new Product[]
                     {
-                        new Product() {ProductID = 1, CategoryID = 1, Name = "Milk", QuantityOnHand = 10, SalePrice = 2.50m},
-                        new Product() {ProductID = 2, CategoryID = 1, Name = "Cereal", QuantityOnHand = 50, SalePrice = 1.25m},
+                        new Product("Milk", 10, 2.50m) {ProductID = 1, CategoryID = 1},
+                        new Product("Cereal", 50, 1.25m) {ProductID = 2, CategoryID = 1},
                     });
             });
 

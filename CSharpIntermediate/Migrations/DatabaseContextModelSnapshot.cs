@@ -56,7 +56,7 @@ namespace CSharpIntermediate.Migrations
                     b.HasIndex("CategoryID")
                         .HasDatabaseName("FK_Product_ProductCategory");
 
-                    b.ToTable("product");
+                    b.ToTable("product", (string)null);
 
                     b.HasData(
                         new
@@ -103,7 +103,7 @@ namespace CSharpIntermediate.Migrations
 
                     b.HasKey("ProductCategoryID");
 
-                    b.ToTable("product_category");
+                    b.ToTable("product_category", (string)null);
 
                     b.HasData(
                         new

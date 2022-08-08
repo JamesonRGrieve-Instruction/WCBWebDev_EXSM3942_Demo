@@ -65,11 +65,8 @@ using (DatabaseContext context = new DatabaseContext())
     try
     {
         // EF automatically opens a transaction at the creation of the context.
-        context.Products.Add(new Product()
+        context.Products.Add(new Product(name, qoh, price)
         {
-            Name = name,
-            SalePrice = price,
-            QuantityOnHand = qoh,
             ProductCategory = context.ProductCategories.Where(x => x.Name == category).Single()
         });
     }
@@ -91,6 +88,22 @@ newname = Console.ReadLine().Trim();
 using (DatabaseContext context = new DatabaseContext())
 {
     context.Products.Where(x => x.Name == oldname).Single().Name = newname;
+
+    context.SaveChanges();
+}
+
+
+
+string prodname;
+int inventoryToAdd;
+Console.Write("Please enter the product name to update: ");
+prodname = Console.ReadLine().Trim();
+Console.Write("Please enter the amount of product recieved: ");
+inventoryToAdd = int.Parse(Console.ReadLine());
+
+using (DatabaseContext context = new DatabaseContext())
+{
+    context.Products.Where(x => x.Name == prodname).Single().RecieveStock(inventoryToAdd);
 
     context.SaveChanges();
 }
